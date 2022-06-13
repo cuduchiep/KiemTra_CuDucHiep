@@ -1,0 +1,35 @@
+﻿@model IEnumerable<KiemTra_CuDucHiep.Models.HocPhan>
+@{
+    ViewBag.Title = "listHocphan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>LIST HOC PHAN</h2>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel panel-heading">
+                    @item.TenHP
+                </div>
+                <div class="panel-body">
+                    <p><strong>Giá: </strong>@item.MaHP</p>
+                    <p><strong>Ngày cập nhật: </strong>@item.TenHP</p>
+                    <p><strong>Số lượng tồn: </strong>@item.SoTinChi</p>
+                    
+                </div>
+                <div class="panel-footer clearfix">
+                    <div class="pull-right">
+
+                        <div class="DatMua">
+                            <a class="btn btn-success" href="@Url.Action("ThemGioHang", "Dangky",
+                            new { @id = item.MaHP, @strURL = Request.Url.ToString()})">Đăng ký</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
